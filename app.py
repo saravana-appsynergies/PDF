@@ -1,3 +1,4 @@
+import docx
 import streamlit as st
 from docx import Document
 from datetime import datetime
@@ -610,7 +611,17 @@ if option !="Invoice":
                 label="Download Word Document",
                 data=word_file,
                 file_name=file_name,
-                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.docx"
+            )
+        # Add a "View Word Document" button
+    
+    
+        with open(updated_word_path, "rb") as word_file:
+            st.download_button(
+                label="Download Word PDF",
+                data=word_file,
+                file_name=file_name,
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.pdf"
             )
 
     except Exception as e:
